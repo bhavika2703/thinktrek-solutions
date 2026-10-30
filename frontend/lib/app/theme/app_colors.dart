@@ -1,41 +1,42 @@
 import 'package:flutter/material.dart';
 
-/// Brand palette and semantic colors.
+/// Brand palette sampled from [assets/logo.png].
 ///
-/// Widgets should use semantic names (primaryAction, heading, border, …)
-/// rather than raw brand values so the visual language stays consistent.
+/// Cyan is the wordmark. Lime green is the trail mark. Surfaces stay light
+/// so the logo can sit on the same white field it was designed for.
 abstract final class AppColors {
-  static const Color brandTurquoise = Color(0xFF079FC0);
-  static const Color brandGreen = Color(0xFF168B36);
-  static const Color deepNavy = Color(0xFF1C3154);
-  static const Color warmOffWhite = Color(0xFFF8F7F3);
-  static const Color charcoal = Color(0xFF333B46);
-  static const Color dividerGrey = Color(0xFFDADDD8);
+  static const Color brandCyan = Color(0xFF00A8D0);
+  static const Color brandCyanBright = Color(0xFF02ABE4);
+  static const Color brandCyanDeep = Color(0xFF007CA6);
+  static const Color brandGreen = Color(0xFF30E060);
+  static const Color brandGreenDeep = Color(0xFF008818);
+  static const Color ink = Color(0xFF0B3A4A);
+  static const Color slate = Color(0xFF3A5560);
+  static const Color mist = Color(0xFFF3FBFD);
+  static const Color ice = Color(0xFFE6F7FB);
   static const Color white = Color(0xFFFFFFFF);
 
-  // Semantic roles
-  static const Color primaryAction = brandTurquoise;
+  static const Color primaryAction = brandCyanDeep;
   static const Color onPrimaryAction = white;
-  static const Color link = brandTurquoise;
-  static const Color focus = brandTurquoise;
-  static const Color highlight = brandTurquoise;
+  static const Color link = brandCyanDeep;
+  static const Color focus = brandCyan;
+  static const Color highlight = brandCyan;
 
-  static const Color structural = deepNavy;
-  static const Color heading = deepNavy;
-  static const Color onStructural = white;
+  static const Color structural = white;
+  static const Color heading = ink;
+  static const Color onStructural = ink;
 
-  static const Color bodyText = charcoal;
+  static const Color bodyText = slate;
 
-  static const Color background = warmOffWhite;
+  static const Color background = mist;
   static const Color surface = white;
 
-  static const Color border = dividerGrey;
-  static const Color divider = dividerGrey;
+  static const Color border = Color(0xFFC9E8F0);
+  static const Color divider = Color(0xFFD7EEF4);
 
   static const Color accent = brandGreen;
-  static const Color activeIndicator = brandGreen;
+  static const Color activeIndicator = brandGreenDeep;
 
-  /// Material requires an error token; this is not a brand/decorative color.
   static const Color error = Color(0xFF9B2C2C);
   static const Color onError = white;
 }

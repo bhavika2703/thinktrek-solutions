@@ -4,24 +4,23 @@ import 'app_colors.dart';
 import 'app_spacing.dart';
 import 'app_text_styles.dart';
 
-/// Material 3 light theme mapped onto the ThinkTrek brand palette.
+/// Light theme mapped onto the ThinkTrek logo palette.
 ///
-/// Navy is structural (app bar, headings). Turquoise is interactive
-/// (buttons, links, focus). Green is reserved for small active/accent marks.
+/// Cyan drives actions and focus. Lime is a small accent. Ink is for type.
 abstract final class AppTheme {
   static const BorderRadius _controlRadius = BorderRadius.all(
-    Radius.circular(2),
+    Radius.circular(999),
   );
 
   static ThemeData get light {
     const colorScheme = ColorScheme.light(
       primary: AppColors.primaryAction,
       onPrimary: AppColors.onPrimaryAction,
-      secondary: AppColors.structural,
-      onSecondary: AppColors.onStructural,
+      secondary: AppColors.ink,
+      onSecondary: AppColors.white,
       tertiary: AppColors.accent,
-      onTertiary: AppColors.white,
-      surface: AppColors.background,
+      onTertiary: AppColors.ink,
+      surface: AppColors.surface,
       onSurface: AppColors.bodyText,
       error: AppColors.error,
       onError: AppColors.onError,
@@ -40,8 +39,8 @@ abstract final class AppTheme {
       canvasColor: AppColors.background,
       dividerColor: AppColors.divider,
       focusColor: AppColors.focus.withValues(alpha: 0.12),
-      hoverColor: AppColors.structural.withValues(alpha: 0.04),
-      splashColor: AppColors.primaryAction.withValues(alpha: 0.08),
+      hoverColor: AppColors.brandCyan.withValues(alpha: 0.06),
+      splashColor: AppColors.brandCyan.withValues(alpha: 0.10),
       visualDensity: VisualDensity.standard,
       appBarTheme: AppBarTheme(
         elevation: 0,
@@ -52,6 +51,15 @@ abstract final class AppTheme {
         centerTitle: false,
         titleTextStyle: textTheme.titleLarge?.copyWith(
           color: AppColors.onStructural,
+        ),
+      ),
+      cardTheme: CardThemeData(
+        color: AppColors.surface,
+        elevation: 0,
+        margin: EdgeInsets.zero,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(24),
+          side: const BorderSide(color: AppColors.border),
         ),
       ),
       dividerTheme: const DividerThemeData(
@@ -69,15 +77,15 @@ abstract final class AppTheme {
           shape: const RoundedRectangleBorder(borderRadius: _controlRadius),
           textStyle: textTheme.labelLarge?.copyWith(
             color: AppColors.onPrimaryAction,
-            letterSpacing: 0.6,
+            letterSpacing: 0.2,
           ),
         ),
       ),
       outlinedButtonTheme: OutlinedButtonThemeData(
         style: OutlinedButton.styleFrom(
-          foregroundColor: AppColors.structural,
+          foregroundColor: AppColors.ink,
           padding: AppSpacing.buttonPadding,
-          side: const BorderSide(color: AppColors.structural, width: 1),
+          side: const BorderSide(color: AppColors.border, width: 1.5),
           shape: const RoundedRectangleBorder(borderRadius: _controlRadius),
           textStyle: textTheme.labelLarge,
         ),
@@ -90,31 +98,32 @@ abstract final class AppTheme {
         ),
       ),
       inputDecorationTheme: InputDecorationTheme(
-        filled: false,
+        filled: true,
+        fillColor: AppColors.white,
         isDense: false,
         contentPadding: const EdgeInsets.symmetric(
           horizontal: AppSpacing.md,
           vertical: AppSpacing.md,
         ),
         hintStyle: textTheme.bodyMedium?.copyWith(
-          color: AppColors.bodyText.withValues(alpha: 0.72),
+          color: AppColors.bodyText.withValues(alpha: 0.62),
         ),
         labelStyle: textTheme.bodyMedium,
-        enabledBorder: const OutlineInputBorder(
-          borderRadius: _controlRadius,
-          borderSide: BorderSide(color: AppColors.border, width: 1),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(16),
+          borderSide: const BorderSide(color: AppColors.border, width: 1),
         ),
-        focusedBorder: const OutlineInputBorder(
-          borderRadius: _controlRadius,
-          borderSide: BorderSide(color: AppColors.focus, width: 1.5),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(16),
+          borderSide: const BorderSide(color: AppColors.focus, width: 1.5),
         ),
-        errorBorder: const OutlineInputBorder(
-          borderRadius: _controlRadius,
-          borderSide: BorderSide(color: AppColors.error, width: 1),
+        errorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(16),
+          borderSide: const BorderSide(color: AppColors.error, width: 1),
         ),
-        focusedErrorBorder: const OutlineInputBorder(
-          borderRadius: _controlRadius,
-          borderSide: BorderSide(color: AppColors.error, width: 1.5),
+        focusedErrorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(16),
+          borderSide: const BorderSide(color: AppColors.error, width: 1.5),
         ),
       ),
     );

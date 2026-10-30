@@ -1,0 +1,10 @@
+{
+  "plugins": {
+    "github": {
+      "enabled": true
+    },
+    "figma": {
+      "enabled": true
+    }
+  }
+}
